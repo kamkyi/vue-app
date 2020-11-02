@@ -8,7 +8,7 @@ require('@/store/subscription');
 
 Vue.config.productionTip = false
 // axios.defaults.baseURL = 'https://admin.test/'
-axios.defaults.baseURL = 'https://wai-vue.herokuapp.com/'
+axios.defaults.baseURL = 'https://anyar-online.herokuapp.com/'
 
 store.dispatch('auth/attempt',localStorage.getItem('token')).then(()=>{
   new Vue({

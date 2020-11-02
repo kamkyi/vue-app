@@ -1,24 +1,42 @@
 <template>
-  <div id="app">
-    <center>
-        <Nav/>
-    <router-view/>
-    </center>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+         Dev.Wai Vue-JS
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Login</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+    
+    </v-main>
+  </v-app>
 </template>
+
 <script>
-import Nav from './components/Nav';
 
 export default {
-  name:'App',
-  components:{
-     Nav
-  }
-}
-</script>>
+  name: 'App',
 
-<style lang="scss">
-ul li{
-  list-style-type: none;
-}
-</style>
+  components: {
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>

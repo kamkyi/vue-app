@@ -4,7 +4,9 @@
    </div>
    <template v-if="authenticated">
       <center>
-         {{ user.success.name }}
+         {{ user.success.name }}<br/>
+         <br/>
+         <button class="btn btn-danger btn-md" v-on:click="test">Logout</button>
       </center>
    </template>
    <template v-else>
@@ -21,7 +23,7 @@
 
 <script>
 import Login from './views/supplier/Login'
-import {mapGetters} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
 
 export default {
   name: 'App',
@@ -30,6 +32,14 @@ export default {
        authenticated:'auth/authenticated',
        user:'auth/user'
     })
+  },
+  methods:{
+    ...mapActions({
+       logout:'auth/signOut'
+    }),
+    test(){
+    this.logout();
+    }
   },
   components: {
     Login

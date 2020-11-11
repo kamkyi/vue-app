@@ -6,8 +6,11 @@
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" v-model="form.password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="password">Password</label>
+    <ValidationProvider rules="minmax:3,8" v-slot="{ errors }">
+        <input type="password" v-model="form.password" class="form-control" id="password" placeholder="Password">
+        <span class="field-error">{{ errors[0] }}</span>
+    </ValidationProvider>
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -19,6 +22,15 @@
 <script>
 
 import {mapActions} from 'vuex';
+import { extend } from 'vee-validate';
+
+extend('minmax', {
+  validate(value, { min, max }) {
+    return value.length >= min && value.length <= max;
+  },
+  params: ['min', 'max']
+});
+
 export default {
     name:'Login',
     data(){
@@ -38,4 +50,9 @@ export default {
         }
     }
 }
-</script>>
+</script>
+<style scoped>
+.field-error {
+  color: red;
+}
+</style>

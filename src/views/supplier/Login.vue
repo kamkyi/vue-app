@@ -31,10 +31,10 @@ export default {
     },
     methods:{
         ...mapActions({
-            loginMu:'supplier/login'
+            login:'auth/signIn'
         }),
-        submit(){
-            this.loginMu
+        async submit(){
+            this.login(this.form)
         }
     }
 }

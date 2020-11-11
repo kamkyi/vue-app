@@ -34,7 +34,6 @@ export default {
       },
       async signIn({dispatch},credentials){
            let response = await axios.post('api/login',credentials);
-
            return dispatch('attempt',response.data.success.token);
 
       },

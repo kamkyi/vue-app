@@ -1,32 +1,23 @@
-const state = {
-    supplier:{
-        name:'',
-        age:'',
-        email:'',
-        password:''
-    },
-    email:'',
-    password:''
-};
-
-const actions = {
-    login({commit}){
-       commit('ALERT')
-    }
-};
-
-const mutations = {
-    ALERT(){
-        window.alert();
-    }
-};
-
-const getters = {};
+import axios from "axios";
 
 export default{
     namespaced:true,
-    state,
-    actions,
-    mutations,
-    getters
+    state:{
+        
+    },
+    getters:{
+        
+    },
+    mutations:{
+
+    },
+    actions:{
+        login({dispatch},credentials){
+            dispatch('attempt',credentials);
+        },
+        async attempt(credentials){
+               let response = await axios.post('api/login',credentials);
+               console.log(response);
+        }   
+    }
 }

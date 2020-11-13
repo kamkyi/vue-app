@@ -35,6 +35,7 @@ export default {
                 axios.post('api/logout');
                 commit('SET_USER',null);
                 commit('SET_TOKEN',null);
+                commit('SET_SEEN',false);
            }catch(e){
                 window.alert("Failed to Logut");
            }

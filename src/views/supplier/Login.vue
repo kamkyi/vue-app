@@ -16,12 +16,15 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">
+      <span class="spinner-border spinner-border-sm" v-if="seen" role="status" aria-hidden="true"></span>
+      Submit
+    </button>
     </form>
 </template>
 <script>
 
-import {mapActions} from 'vuex';
+import {mapActions,mapGetters} from 'vuex';
 import { extend } from 'vee-validate';
 
 extend('minmax', {
@@ -33,6 +36,11 @@ extend('minmax', {
 
 export default {
     name:'Login',
+    computed:{
+        ...mapGetters({
+            seen:'auth/seen'
+        })
+    },
     data(){
         return {
             form:{

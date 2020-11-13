@@ -4,9 +4,13 @@ export default {
   namespaced:true,
   state: {
       token: null,
-      user: null
+      user: null,
+      seen: false,
   },
   getters:{
+    seen(state){
+        return state.seen;
+    },
     authenticated(state){
         return state.token && state.user;
     },
@@ -15,6 +19,9 @@ export default {
     }
   },
   mutations: {
+      SET_SEEN(state,toggler){
+         state.seen = toggler;
+      },
       SET_TOKEN(state,token){
          state.token = token;
       },
@@ -41,6 +48,7 @@ export default {
       async attempt({commit,state},token){    
             if(token){
                 commit('SET_TOKEN',token);
+                commit('SET_SEEN',true);
             }
             if(!state.token){
                 return 

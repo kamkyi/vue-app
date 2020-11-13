@@ -23,7 +23,6 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = 'https://anyar-online.herokuapp.com/'
 
 store.dispatch('auth/attempt',localStorage.getItem('token')).then(()=>{
-
   new Vue({
     router,
     store,

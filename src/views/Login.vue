@@ -54,7 +54,11 @@ export default {
             login:'auth/signIn'
         }),
         async submit(){
-            this.login(this.form)
+            this.login(this.form).then(() => {
+                this.$router.replace({
+                    name:'Dashboard'
+                });
+            });
         }
     }
 }

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
 import Dashboard from '../views/Dashboard.vue'
-import SignIn from '../views/SignIn.vue'
 import store from '@/store'
 
 Vue.use(VueRouter)
@@ -20,16 +20,16 @@ const routes = [
     beforeEnter: (to, from, next) => {
       if(!store.getters['auth/authenticated']){
         return next({
-          name:'SignIn'
+          name:'Login'
         });
       }
       next();
     }
   },
   {
-    path: '/signin',
-    name: 'SignIn',
-    component: SignIn
+    path: '/login',
+    name: 'Login',
+    component: Login
   }
 ]
 

@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import { ValidationProvider } from 'vee-validate';
 
-
 require('@/store/subscription');
 
 // Install BootstrapVue

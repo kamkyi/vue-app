@@ -1,12 +1,18 @@
 <template>
-    <div>
-       <router-view/>
-    </div>
+      <div>
+          <div class="jumbotron">
+          </div>
+          <NavBar/>
+          <div class="container">
+            <router-view/>
+          </div>
+      </div>
 </template>
 
 <script>
 import axios from 'axios';
 import {mapGetters,mapActions} from 'vuex'
+import NavBar from './components/NavBar'
 
 export default {
   name: 'App',
@@ -39,6 +45,7 @@ export default {
     }
   },
   components: {
+    NavBar
   },
 
   data: () => ({
@@ -46,3 +53,8 @@ export default {
   }),
 };
 </script>
+<style scoped>
+ .jumbotron{
+   margin:0;
+ }
+</style>
